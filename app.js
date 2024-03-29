@@ -1,4 +1,3 @@
-const add = require("./add");
+require("./superman");
+require("./batman");
 console.log("hey");
-const sum = add(5, 5);
-console.log(sum);
