@@ -1,5 +1,6 @@
-const add = (a, b) => {
+module.exports.add = (a, b) => {
   return a + b;
 };
-
-module.exports = add;
+module.exports.sub = (a, b) => {
+  return a - b;
+};
