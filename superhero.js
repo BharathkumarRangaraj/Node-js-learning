@@ -9,4 +9,4 @@ class Superhero {
     this.name = name;
   }
 }
-module.exports = new Superhero("raja");
+module.exports = Superhero;
