@@ -1,10 +1,14 @@
-function greet(name) {
-  console.log(`hello ${name}`);
-}
+const eventemiter = require("node:events");
 
-function hocgreetfn(hocgreet) {
-  const name = "bharath";
-  hocgreet(name);
-}
+emiter = new eventemiter();
 
-hocgreetfn(greet);
+emiter.on("ordering-pizza", (type, size) => {
+  console.log(`${size} pizza is ordered with ${type}`);
+});
+emiter.on("ordering-pizza", (type, size) => {
+  if (size === "large") {
+    console.log("complentry is soda");
+  }
+});
+
+emiter.emit("ordering-pizza", "mushroom", "large");
