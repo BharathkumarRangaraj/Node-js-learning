@@ -10,3 +10,4 @@ streams and buffers.
 fs module - readFileSync ,readFile,writeFileSync,writeFile,flag,error,error first clback.
 fs promise module.
 fs stream : createreadstream,createWriteStream
+fs,zlib : pipe,tranform stream,write stream
