@@ -13,3 +13,4 @@ fs stream : createreadstream,createWriteStream
 fs,zlib : pipe,tranform stream,write stream
 node server -http module
 node server - passing obj as http response
+creating node server and passing html as response
