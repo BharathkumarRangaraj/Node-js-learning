@@ -1,13 +1,13 @@
 const http = require("node:http");
+const fs = require("node:fs");
 
 const server = http.createServer((req, res) => {
-  const superHero = {
-    name: "bharath",
-    age: "24",
-    place: "bangalore",
-  };
-  res.writeHead(200, { "contetx-Type": "text/plain" });
-  res.end(JSON.stringify(superHero));
+  res.writeHead(200, { "contetx-Type": "text/html" });
+
+  fs.createReadStream("index.html").pipe(res);
+
+  // const html = fs.readFileSync("index.html");
+  // res.end(html);
 });
 
 server.listen(3000, () => {
