@@ -7,3 +7,4 @@ event module - events,on(),emit()
 custome eventmodule emitter by inheriting the comp as eventemitter
 binarydata,charsets,encoding
 streams and buffers
+fs module - readFileSync ,readFile,writeFileSync,writeFile,flag,error,error first clback
