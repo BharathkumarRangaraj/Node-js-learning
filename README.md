@@ -8,3 +8,4 @@
 binarydata,charsets,encoding
 streams and buffers
 fs module - readFileSync ,readFile,writeFileSync,writeFile,flag,error,error first clback
+fs promise module
