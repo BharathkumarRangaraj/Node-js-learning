@@ -1,46 +1,13 @@
-const promisefs = require("node:fs/promises");
+const fs = require("node:fs");
 
-async function readFile() {
-  try {
-    const data = await promisefs.readFile("text.txt", "utf-8");
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
-}
+const readablestram = fs.createReadStream("text.txt", {
+  encoding: "utf-8",
+  highWaterMark: 2,
+});
 
-readFile();
+const writablestream = fs.createWriteStream("text2.txt");
 
-// const fs = require("node:fs");
-
-// //reading file is syncronosly
-// console.log("first");
-// const text = fs.readFileSync("text.txt", "utf-8");
-// console.log(text);
-
-// //reading file async effective as its donesnt block the code
-// console.log("second");
-// fs.readFile("text.txt", "utf-8", (error, data) => {
-//   if (error) {
-//     console.log(error);
-//   } else {
-//     console.log(data);
-//   }
-// });
-// console.log("third");
-
-// //hw to write content in the file
-
-// //sync way
-
-// fs.writeFileSync("greet.txt", "hello bharath");
-
-// //async way
-
-// fs.writeFile("greet.txt", " hello kumar", { flag: "a" }, (err) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log("file written");
-//   }
-// });
+readablestram.on("data", (chunk) => {
+  console.log(chunk);
+  writablestream.write(chunk);
+});
