@@ -1,18 +1,15 @@
-const crypto = require("node:crypto");
+const https = require("node:https");
+
+const max_calls = 5;
 const start = Date.now();
 
-//sync way
-// crypto.pbkdf2Sync("password", "salt", 100000, 512, "sha512");
-// console.log("Hash", Date.now() - start);
-
-//async way;
-//run in libuv thread pool
-
-process.env.UV_THREADPOOL_SIZE = 5;
-const max_calls = 5;
-
 for (let a = 0; a < max_calls; a++) {
-  crypto.pbkdf2("password", "salt", 100000, 512, "sha512", () => {
-    console.log(`hash: ${a + 1}`, Date.now() - start);
-  });
+  https
+    .request("https://www.google.com", (res) => {
+      res.on("data", () => {});
+      res.on("end", () => {
+        console.log(`Request: ${a + 1}`, Date.now() - start);
+      });
+    })
+    .end();
 }
