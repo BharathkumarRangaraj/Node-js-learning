@@ -1,15 +1,26 @@
-const https = require("node:https");
+setTimeout(() => console.log("1"), 0);
+setTimeout(
+  () => console.log("2"),
+  Promise.resolve().then(() => console.log("promse one nsde settmeout")),
+  process.nextTick(() => console.log(" settmeout nner next tck")),
+  0
+);
+setTimeout(() => console.log("3"), 0);
 
-const max_calls = 5;
-const start = Date.now();
+process.nextTick(() => console.log("first next tck"));
+process.nextTick(() => console.log("2 next tck"));
+process.nextTick(
+  () => console.log("3 next tck"),
+  process.nextTick(() => console.log(" nner next tck")),
+  process.nextTick(() => console.log(" nner next tck"))
+);
+process.nextTick(() => console.log("4 next tck"));
 
-for (let a = 0; a < max_calls; a++) {
-  https
-    .request("https://www.google.com", (res) => {
-      res.on("data", () => {});
-      res.on("end", () => {
-        console.log(`Request: ${a + 1}`, Date.now() - start);
-      });
-    })
-    .end();
-}
+Promise.resolve().then(() => console.log("promse one"));
+Promise.resolve().then(
+  () => console.log("promse 2"),
+  process.nextTick(() => console.log(" prmse nner next tck")),
+  process.nextTick(() => console.log(" prmse nner next tck 2"))
+);
+
+Promise.resolve().then(() => console.log("promse 3"));
