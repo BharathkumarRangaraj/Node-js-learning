@@ -8,9 +8,10 @@ const start = Date.now();
 //async way;
 //run in libuv thread pool
 
+process.env.UV_THREADPOOL_SIZE = 5;
 const max_calls = 5;
 
-for (let a = 0; a <= max_calls; a++) {
+for (let a = 0; a < max_calls; a++) {
   crypto.pbkdf2("password", "salt", 100000, 512, "sha512", () => {
     console.log(`hash: ${a + 1}`, Date.now() - start);
   });
