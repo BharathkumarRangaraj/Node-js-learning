@@ -1,0 +1,12 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "+dep,LIP.\r // / built-in module, path basename,parse,format,isabsolute,join,resolve'.\r /event module - events,on(),emit().\r /custome eventmodule emitter by inheriting the comp as eventemitter.\r binarydata,charsets,encoding.\r streams and buffers.\r fs module - readFileSync ,readFile,writeFileSync,writeFile,flag,error,error first clback.\r fs promise module.\r fs stream : createreadstream,createWriteStream\r fs,zlib : pipe,tranform stream,write stream\r node server -http module\r node server - passing obj as http response\r creating node server and passing html as response\r creating node server and passing dynamic html value\r http routng\r libuv,thread pool,crypto module,thread pool experiment\r network i/o\r event loop mindmap execution order\r execution order->micro task queue,next tick,promise,timer call back",
+  "main": "add.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bharath",
+  "license": "ISC"
+
+}
